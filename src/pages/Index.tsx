@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { AssessmentProgress } from "@/components/AssessmentProgress";
 import { QuestionCard } from "@/components/QuestionCard";
 import { WISCARRadar } from "@/components/WISCARRadar";
 import { ResultsCard } from "@/components/ResultsCard";
 import { psychometricQuestions, calculateScores } from "@/data/assessmentQuestions";
-import { ArrowRight, Target, Brain, Users, TrendingUp, CheckCircle } from "lucide-react";
-import heroImage from "@/assets/hero-assessment.jpg";
+import { ArrowRight, Target, Brain, Users, TrendingUp, CheckCircle, Zap, Cloud, Building, Activity, BarChart3, Workflow, Briefcase, Settings, MessageSquare, PenTool, Monitor } from "lucide-react";
 
 type AssessmentState = "intro" | "assessment" | "results";
 
@@ -52,105 +52,245 @@ const Index = () => {
 
   if (currentState === "intro") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background to-accent">
-        {/* Hero Section */}
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-5xl font-bold leading-tight">
-                  Is Microsoft Dynamics 365 the Right{" "}
-                  <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                    Career Fit
-                  </span>{" "}
-                  for You?
-                </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Discover your compatibility with Microsoft Dynamics 365 careers through our comprehensive 
-                  psychometric and technical assessment. Get personalized insights and career guidance.
-                </p>
+      <div className="min-h-screen bg-background">
+        {/* Progress Header */}
+        <div className="border-b bg-card">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl font-bold">Is Microsoft Dynamics 365 the Right Career Fit for You?</h1>
+                <p className="text-muted-foreground">Comprehensive Career Assessment & Guidance</p>
               </div>
-
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-sm">
-                  <Brain className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium">Psychometric Analysis</span>
-                </div>
-                <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-sm">
-                  <Target className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium">WISCAR Framework</span>
-                </div>
-                <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full shadow-sm">
-                  <TrendingUp className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium">Career Guidance</span>
-                </div>
+              <div className="text-sm text-muted-foreground">
+                <span className="font-medium">20% Complete</span>
               </div>
-
-              <Button size="lg" onClick={handleStartAssessment} className="text-lg px-8 py-6">
-                Start Assessment
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle className="h-4 w-4" />
-                <span>20-30 minutes • Comprehensive analysis • Personalized results</span>
-              </div>
-            </div>
-
-            <div className="relative">
-              <img 
-                src={heroImage} 
-                alt="Career Assessment" 
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
             </div>
           </div>
         </div>
 
-        {/* Features Section */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">What You'll Discover</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our comprehensive assessment evaluates multiple dimensions of career fit
-            </p>
+        {/* Navigation Steps */}
+        <div className="border-b bg-muted/30">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex gap-4 overflow-x-auto">
+              <Badge variant="default" className="whitespace-nowrap">
+                <Monitor className="w-4 h-4 mr-2" />
+                Introduction
+              </Badge>
+              <Badge variant="outline" className="whitespace-nowrap">
+                <Brain className="w-4 h-4 mr-2" />
+                Psychological Fit
+              </Badge>
+              <Badge variant="outline" className="whitespace-nowrap">
+                <Activity className="w-4 h-4 mr-2" />
+                Technical Aptitude
+              </Badge>
+              <Badge variant="outline" className="whitespace-nowrap">
+                <BarChart3 className="w-4 h-4 mr-2" />
+                WISCAR Analysis
+              </Badge>
+              <Badge variant="outline" className="whitespace-nowrap">
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Your Results
+              </Badge>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 py-8 max-w-6xl">
+          {/* Main Hero Card */}
+          <div className="mb-12">
+            <Card className="border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
+              <CardContent className="p-8 text-center">
+                <h2 className="text-3xl font-bold mb-4">Discover Your Microsoft Dynamics 365 Career Potential</h2>
+                <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
+                  Take our comprehensive assessment to evaluate your psychological fit, technical readiness, 
+                  and career alignment for a future in Microsoft Dynamics 365 development and administration.
+                </p>
+                
+                <div className="flex items-center justify-center gap-8 mb-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4" />
+                    <span>25-30 minutes</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Target className="h-4 w-4" />
+                    <span>Personalized Results</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4" />
+                    <span>Career Guidance</span>
+                  </div>
+                </div>
+
+                <Button size="lg" onClick={handleStartAssessment} className="text-lg px-8 py-6">
+                  Start Assessment
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </CardContent>
+            </Card>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* What is Microsoft Dynamics 365 */}
+          <div className="mb-12">
             <Card>
               <CardHeader>
-                <Brain className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Psychological Fit</CardTitle>
+                <div className="flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-xl">What is Microsoft Dynamics 365?</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Assess your personality traits, cognitive style, and motivation patterns against Dynamics 365 role requirements.
+                <p className="text-muted-foreground mb-6">
+                  Microsoft Dynamics 365 is a powerful <strong>cloud-based platform</strong> that specializes in <strong>Enterprise Resource Planning (ERP)</strong> and Customer Relationship Management (CRM). It empowers organizations to streamline business processes and drive digital transformation across various departments and functions.
                 </p>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <Cloud className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h4 className="font-semibold text-blue-600 mb-2">Cloud Platform</h4>
+                    <p className="text-sm text-muted-foreground">Scalable, secure, and accessible from anywhere</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <Workflow className="h-6 w-6 text-green-600" />
+                    </div>
+                    <h4 className="font-semibold text-green-600 mb-2">Business Integration</h4>
+                    <p className="text-sm text-muted-foreground">Streamline processes and reduce manual work</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <Building className="h-6 w-6 text-purple-600" />
+                    </div>
+                    <h4 className="font-semibold text-purple-600 mb-2">Enterprise Scale</h4>
+                    <p className="text-sm text-muted-foreground">Used by Fortune 500 companies worldwide</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
+          </div>
 
+          {/* Career Opportunities */}
+          <div className="mb-12">
             <Card>
               <CardHeader>
-                <Target className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>WISCAR Analysis</CardTitle>
+                <div className="flex items-center gap-2">
+                  <Briefcase className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-xl">Career Opportunities</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Comprehensive evaluation of Will, Interest, Skill, Cognitive readiness, Ability to learn, and Real-world alignment.
-                </p>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div>
+                    <h4 className="font-semibold mb-2">Dynamics 365 Functional Consultant</h4>
+                    <p className="text-sm text-muted-foreground">Configure solutions and optimize business processes</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">Dynamics 365 Developer</h4>
+                    <p className="text-sm text-muted-foreground">Build custom solutions and integrations</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">Solution Architect</h4>
+                    <p className="text-sm text-muted-foreground">Design enterprise system architecture</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">Business Analyst</h4>
+                    <p className="text-sm text-muted-foreground">Bridge technical and business requirements</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">CRM Administrator</h4>
+                    <p className="text-sm text-muted-foreground">Manage platform and user configurations</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">ERP Analyst</h4>
+                    <p className="text-sm text-muted-foreground">Optimize enterprise resource planning</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
+          </div>
 
+          {/* Ideal Traits */}
+          <div className="mb-12">
             <Card>
               <CardHeader>
-                <Users className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Career Guidance</CardTitle>
+                <div className="flex items-center gap-2">
+                  <Target className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-xl">Ideal Traits & Skills</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Get specific role recommendations, learning paths, and next steps tailored to your unique profile.
-                </p>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    "Strong analytical thinking",
+                    "Process-oriented mindset", 
+                    "Business acumen",
+                    "Problem-solving skills",
+                    "Communication skills",
+                    "Attention to detail"
+                  ].map((trait, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <span className="text-sm">{trait}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* What You'll Discover */}
+          <div>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">What You'll Discover</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="font-semibold mb-4">Assessment Modules:</h4>
+                    <div className="space-y-3">
+                      {[
+                        { num: "1", title: "Psychological Fit Evaluation" },
+                        { num: "2", title: "Technical Aptitude Testing" },
+                        { num: "3", title: "WISCAR Framework Analysis" }
+                      ].map((module, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                          <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                            {module.num}
+                          </div>
+                          <span className="text-sm">{module.title}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-4">Your Results Include:</h4>
+                    <div className="space-y-2">
+                      {[
+                        "Personalized fit score (0-100)",
+                        "Detailed trait analysis", 
+                        "Technical readiness assessment",
+                        "Career pathway recommendations",
+                        "Next steps and learning resources"
+                      ].map((result, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                          <span className="text-sm">{result}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
